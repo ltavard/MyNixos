@@ -72,6 +72,9 @@
      geeqie
      gimp
      dia
+     emacs
+     subversion
+     xournal
   ];
 
   # Sound config for B&O audio
@@ -110,6 +113,8 @@
   # Enable docker virtualization
   virtualisation.docker.enable = true;
 
+  # Enable virtualbox virtualization
+  #virtualisation.virtualbox.host.enable = true;
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
@@ -130,8 +135,8 @@
     services.xfs.enable = true;
     fonts.enableFontDir = true;
     services.xserver.layout = "fr";
-    services.xserver.xkbVariant = "latin9";
-    services.xserver.xkbOptions = "eurosign:e";
+    #services.xserver.xkbVariant = "latin9";
+    #services.xserver.xkbOptions = "eurosign:e";
     services.xserver.synaptics.enable = true;
     services.xserver.synaptics.twoFingerScroll = true;
     services.xserver.exportConfiguration = true;
@@ -152,6 +157,7 @@
   # Enable network manager
     networking.networkmanager.enable = true;
 
+  nix.useSandbox = true;
 
   # Enable parallel build
   nix.maxJobs = 8 ;
