@@ -75,6 +75,8 @@
      emacs
      subversion
      xournal
+     gparted
+     unzip
   ];
 
   # Sound config for B&O audio
@@ -114,7 +116,10 @@
   virtualisation.docker.enable = true;
 
   # Enable virtualbox virtualization
-  #virtualisation.virtualbox.host.enable = true;
+  # https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
+  virtualisation.virtualbox.host.enable = true;
+  nixpkgs.config.virtualbox.enableExtensionPack = true;
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
