@@ -77,6 +77,10 @@
      xournal
      gparted
      unzip
+     gnome3.eog
+     inkscape
+     htop
+     gnome3.gedit
   ];
 
   # Sound config for B&O audio
@@ -86,6 +90,9 @@
     load-module module-equalizer-sink
     load-module module-dbus-protocol
   '';
+
+  ##L Bluetooth Mode
+  hardware.bluetooth.enable = false;
   #sound.extraConfig = ''
   #   options snd-hda-intel model=auto position_fix=0
   #'';
@@ -140,10 +147,12 @@
     services.xfs.enable = true;
     fonts.enableFontDir = true;
     services.xserver.layout = "fr";
+    services.xserver.xkbVariant = "azerty"; ##L 
     #services.xserver.xkbVariant = "latin9";
-    #services.xserver.xkbOptions = "eurosign:e";
-    services.xserver.synaptics.enable = true;
-    services.xserver.synaptics.twoFingerScroll = true;
+    ##L add a nouveau.
+    services.xserver.xkbOptions = "eurosign:e";
+    ##L services.xserver.synaptics.enable = true;
+    ##L services.xserver.synaptics.twoFingerScroll = true;
     services.xserver.exportConfiguration = true;
     services.xserver.displayManager.sessionCommands = ''
       # Start network manager applet
@@ -154,10 +163,12 @@
 
 
   # Enable the KDE Desktop Environment.
-   services.xserver.displayManager.kdm.enable = true;
-   services.xserver.desktopManager.kde5.enable = true;
-  #  services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome3.enable = true;
+   #services.xserver.displayManager.kdm.enable = true;
+   #services.xserver.desktopManager.kde5.enable = true;
+
+  # Enable the Gnome Desktop Environment
+   services.xserver.displayManager.gdm.enable = true;
+   services.xserver.desktopManager.gnome3.enable = true;
 
   # Enable network manager
     networking.networkmanager.enable = true;
